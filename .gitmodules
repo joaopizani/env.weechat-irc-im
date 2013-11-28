@@ -1,0 +1,3 @@
+[submodule "inotify-daemon"]
+	path = inotify-daemon
+	url = git@github.com:m4v/inotify-daemon.git
