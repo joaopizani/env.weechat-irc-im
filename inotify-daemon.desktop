@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Exec=/home/joaopizani/bin/inotify-daemon
+Hidden=false
+NoDisplay=false
+X-GNOME-Autostart-enabled=true
+Name[en_US]=inotify-daemon
+Name=inotify-daemon
+Comment[en_US]=
+Comment=
