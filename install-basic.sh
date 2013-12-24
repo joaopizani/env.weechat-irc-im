@@ -12,6 +12,6 @@ CONFFILES=('alias.conf' 'aspell.conf' 'buffers.conf' 'irc.conf' 'logger.conf' 'p
 mkdir -p "${WEECHAT_HOME}"
 
 for conffile in "${CONFFILES[@]}"; do
-    ln -s -f "${CONFDIR}/${conffile}" "${WEECHAT_HOME}/${conffile}"
+    ln -s -f -n "${CONFDIR}/${conffile}" "${WEECHAT_HOME}/${conffile}"
 done
 

@@ -7,7 +7,7 @@ DIR="$(cd -P "$(dirname $CANONICAL_SRC)" && pwd)"
 "${DIR}/install-basic.sh"
 
 mkdir -p "${HOME}/bin"
-ln -s -f "${DIR}/inotify-daemon/inotify-daemon" "${HOME}/bin/inotify-daemon"
+ln -s -f -n "${DIR}/inotify-daemon/inotify-daemon" "${HOME}/bin/inotify-daemon"
 hash -r
 
 # GNOME-based
