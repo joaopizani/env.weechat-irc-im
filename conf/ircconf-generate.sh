@@ -1,3 +1,15 @@
+#!/usr/bin/env bash
+
+REL_SRC="${BASH_SOURCE[0]}"
+CANONICAL_SRC=$(readlink -f "$REL_SRC")
+DIR="$(cd -P "$(dirname $CANONICAL_SRC)" && pwd)"
+
+read -e -p "Which username you want to use > " USERNAME
+read -e -p "Which real name you want to use > " REALNAME
+read -e -p "Which nicks you want to use (comma-separated, no spaces) > " NICKS
+
+
+cat <<EOF > "${DIR}/irc.conf"
 #
 # irc.conf -- weechat v0.4.3-dev
 #
@@ -21,9 +33,9 @@ display_join_message = "329,332,333"
 display_old_topic = on
 display_pv_away_once = on
 display_pv_back = on
-highlight_channel = "$nick"
-highlight_pv = "$nick"
-highlight_server = "$nick"
+highlight_channel = "\$nick"
+highlight_pv = "\$nick"
+highlight_server = "\$nick"
 highlight_tags_restrict = "irc_privmsg,irc_notice"
 item_away_message = on
 item_channel_modes_hide_key = off
@@ -78,7 +90,7 @@ topic_old = darkgray
 alternate_nick = on
 autoreconnect_delay_growing = 2
 autoreconnect_delay_max = 1800
-ban_mask_default = "*!$user@$host"
+ban_mask_default = "*!\$user@\$host"
 colors_receive = on
 colors_send = on
 lag_check = 60
@@ -146,15 +158,15 @@ freenode.ssl_verify
 freenode.password
 freenode.capabilities
 freenode.sasl_mechanism = plain
-freenode.sasl_username = "${sec.data.freenode_username}"
-freenode.sasl_password = "${sec.data.freenode_pass}"
+freenode.sasl_username = "\${sec.data.freenode_username}"
+freenode.sasl_password = "\${sec.data.freenode_pass}"
 freenode.sasl_timeout
 freenode.autoconnect = on
 freenode.autoreconnect = on
 freenode.autoreconnect_delay
-freenode.nicks = "joaopizani,joaopizani_"
+freenode.nicks = "${NICKS}"
 freenode.username
-freenode.realname = "João Paulo Pizani Flor"
+freenode.realname = "${REALNAME}"
 freenode.local_hostname
 freenode.command
 freenode.command_delay
@@ -213,7 +225,7 @@ bitlbee.ssl_cert
 bitlbee.ssl_priorities
 bitlbee.ssl_dhkey_size
 bitlbee.ssl_verify
-bitlbee.password = "${sec.data.bitlbee_pass}"
+bitlbee.password = "\${sec.data.bitlbee_pass}"
 bitlbee.capabilities
 bitlbee.sasl_mechanism
 bitlbee.sasl_username
@@ -222,9 +234,9 @@ bitlbee.sasl_timeout
 bitlbee.autoconnect = on
 bitlbee.autoreconnect = on
 bitlbee.autoreconnect_delay
-bitlbee.nicks = "joaopizani,joaopizani_"
-bitlbee.username = "joaopizani"
-bitlbee.realname = "João Paulo Pizani Flor"
+bitlbee.nicks = "${NICKS}"
+bitlbee.username = "${USERNAME}"
+bitlbee.realname = "${REALNAME}"
 bitlbee.local_hostname
 bitlbee.command
 bitlbee.command_delay
@@ -240,3 +252,5 @@ bitlbee.default_msg_kick
 bitlbee.default_msg_part
 bitlbee.default_msg_quit
 bitlbee.notify
+EOF
+

@@ -5,6 +5,9 @@ CANONICAL_SRC=$(readlink -f "$REL_SRC")
 DIR="$(cd -P "$(dirname $CANONICAL_SRC)" && pwd)"
 
 
+"${DIR}/conf/ircconf-generate.sh"
+
+
 WEECHAT_HOME="${HOME}/.weechat"
 CONFDIR="${DIR}/conf"
 CONFFILES=('alias.conf' 'aspell.conf' 'buffers.conf' 'irc.conf' 'logger.conf' 'plugins.conf' 'weechat.conf')
