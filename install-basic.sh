@@ -3,6 +3,9 @@
 DIR="$(cd -P "$(dirname "$(readlink -f "${BASH_SOURCE[0]}")" )" && pwd)"
 
 
+sudo apt-get install weechat bitlbee{,-{dev,plugin-otr}}
+
+
 "${DIR}/conf/ircconf-generate.sh"
 
 
