@@ -9,7 +9,7 @@ read -e -p "Which nicks you want to use (comma-separated, no spaces) > " NICKS
 
 cat <<EOF > "${DIR}/irc.conf"
 #
-# irc.conf -- weechat v0.4.3-dev
+# irc.conf -- weechat v1.0-dev
 #
 
 [look]
@@ -36,7 +36,7 @@ highlight_pv = "\$nick"
 highlight_server = "\$nick"
 highlight_tags_restrict = "irc_privmsg,irc_notice"
 item_away_message = on
-item_channel_modes_hide_key = off
+item_channel_modes_hide_args = "k"
 item_display_server = buffer_plugin
 item_nick_modes = on
 item_nick_prefix = on
@@ -59,12 +59,12 @@ part_closes_buffer = off
 pv_buffer = independent
 pv_tags = "notify_private"
 raw_messages = 256
-server_buffer = independent
+server_buffer = merge_with_core
 smart_filter = on
 smart_filter_delay = 5
 smart_filter_join = on
 smart_filter_join_unmask = 30
-smart_filter_mode = "ovh"
+smart_filter_mode = "+"
 smart_filter_nick = on
 smart_filter_quit = on
 topic_strip_colors = off
@@ -75,6 +75,7 @@ item_away = yellow
 item_channel_modes = default
 item_lag_counting = default
 item_lag_finished = yellow
+item_nick_modes = default
 message_join = green
 message_quit = red
 mirc_remap = "1,-1:darkgray"
@@ -82,7 +83,7 @@ nick_prefixes = "q:lightred;a:lightcyan;o:lightgreen;h:lightmagenta;v:yellow;*:l
 notice = green
 reason_quit = default
 topic_new = white
-topic_old = darkgray
+topic_old = default
 
 [network]
 alternate_nick = on
@@ -133,13 +134,14 @@ notify = ""
 password = ""
 proxy = ""
 realname = ""
-sasl_mechanism = plain
+sasl_mechanism = dh-blowfish
 sasl_password = ""
 sasl_timeout = 15
 sasl_username = ""
 ssl = off
 ssl_cert = ""
 ssl_dhkey_size = 2048
+ssl_fingerprint = ""
 ssl_priorities = "NORMAL"
 ssl_verify = on
 username = ""
@@ -152,10 +154,11 @@ freenode.ssl = on
 freenode.ssl_cert = ""
 freenode.ssl_priorities
 freenode.ssl_dhkey_size = 1024
+freenode.ssl_fingerprint
 freenode.ssl_verify
 freenode.password
 freenode.capabilities
-freenode.sasl_mechanism = plain
+freenode.sasl_mechanism = dh-blowfish
 freenode.sasl_username = "\${sec.data.freenode_username}"
 freenode.sasl_password = "\${sec.data.freenode_pass}"
 freenode.sasl_timeout
@@ -180,13 +183,14 @@ freenode.default_msg_kick
 freenode.default_msg_part
 freenode.default_msg_quit
 freenode.notify
-oftc.addresses = "irc.oftc.net/6667"
+oftc.addresses = "irc.oftc.net/7000"
 oftc.proxy
 oftc.ipv6
 oftc.ssl
 oftc.ssl_cert
 oftc.ssl_priorities
 oftc.ssl_dhkey_size
+oftc.ssl_fingerprint
 oftc.ssl_verify
 oftc.password
 oftc.capabilities
@@ -222,6 +226,7 @@ bitlbee.ssl
 bitlbee.ssl_cert
 bitlbee.ssl_priorities
 bitlbee.ssl_dhkey_size
+bitlbee.ssl_fingerprint
 bitlbee.ssl_verify
 bitlbee.password = "\${sec.data.bitlbee_pass}"
 bitlbee.capabilities
