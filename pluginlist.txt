@@ -1,3 +1,7 @@
 bitlbee_typing_notice
-facebook_rename
 inotify
+go
+buffers
+iset
+buffer_autoclose
+colorize_nicks
