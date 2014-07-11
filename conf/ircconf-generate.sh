@@ -5,6 +5,7 @@ DIR="$(cd -P "$(dirname "$(readlink -f "${BASH_SOURCE[0]}")" )" && pwd)"
 read -e -p "Which username you want to use > " USERNAME
 read -e -p "Which real name you want to use > " REALNAME
 read -e -p "Which nicks you want to use (comma-separated, no spaces) > " NICKS
+read -e -p "Client SSL cert (empty if not using) > " CLIENTCERT
 
 
 cat <<EOF > "${DIR}/irc.conf"
@@ -151,7 +152,7 @@ freenode.addresses = "chat.freenode.net/7000"
 freenode.proxy
 freenode.ipv6
 freenode.ssl = on
-freenode.ssl_cert = ""
+freenode.ssl_cert = "${CLIENTCERT}"
 freenode.ssl_priorities
 freenode.ssl_dhkey_size = 1024
 freenode.ssl_fingerprint
