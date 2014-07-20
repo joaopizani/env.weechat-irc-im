@@ -165,56 +165,56 @@ freenode.sasl_password = "\${sec.data.freenode_pass}"
 freenode.sasl_timeout
 freenode.autoconnect = on
 freenode.autoreconnect = on
-freenode.autoreconnect_delay
+freenode.autoreconnect_delay = 7
 freenode.nicks = "${NICKS}"
 freenode.username
 freenode.realname = "${REALNAME}"
 freenode.local_hostname
 freenode.command
 freenode.command_delay
-freenode.autojoin = "#haskell,#agda,#coq,#bitcoin"
+freenode.autojoin = "#haskell,#agda,#bitcoin"
 freenode.autorejoin
 freenode.autorejoin_delay
 freenode.connection_timeout
 freenode.anti_flood_prio_high
 freenode.anti_flood_prio_low
-freenode.away_check
+freenode.away_check = 5
 freenode.away_check_max_nicks
 freenode.default_msg_kick
 freenode.default_msg_part
 freenode.default_msg_quit
 freenode.notify
-oftc.addresses = "irc.oftc.net/7000"
+oftc.addresses = "irc.oftc.net/6697"
 oftc.proxy
 oftc.ipv6
-oftc.ssl
-oftc.ssl_cert
+oftc.ssl = on
+oftc.ssl_cert = "${CLIENTCERT}"
 oftc.ssl_priorities
-oftc.ssl_dhkey_size
+oftc.ssl_dhkey_size = 1024
 oftc.ssl_fingerprint
-oftc.ssl_verify
+oftc.ssl_verify = on
 oftc.password
 oftc.capabilities
-oftc.sasl_mechanism
-oftc.sasl_username
-oftc.sasl_password
+oftc.sasl_mechanism = dh-blowfish
+oftc.sasl_username = "\${sec.data.oftc_username}"
+oftc.sasl_password = "\${sec.data.oftc_pass}"
 oftc.sasl_timeout
-oftc.autoconnect
-oftc.autoreconnect
-oftc.autoreconnect_delay
-oftc.nicks
+oftc.autoconnect = on
+oftc.autoreconnect = on
+oftc.autoreconnect_delay = 7
+oftc.nicks = "${NICKS}"
 oftc.username
-oftc.realname
+oftc.realname = "${REALNAME}"
 oftc.local_hostname
 oftc.command
 oftc.command_delay
-oftc.autojoin
+oftc.autojoin = "#privacycafe"
 oftc.autorejoin
 oftc.autorejoin_delay
 oftc.connection_timeout
 oftc.anti_flood_prio_high
 oftc.anti_flood_prio_low
-oftc.away_check
+oftc.away_check = 5
 oftc.away_check_max_nicks
 oftc.default_msg_kick
 oftc.default_msg_part
@@ -237,9 +237,9 @@ bitlbee.sasl_password
 bitlbee.sasl_timeout
 bitlbee.autoconnect = on
 bitlbee.autoreconnect = on
-bitlbee.autoreconnect_delay
+bitlbee.autoreconnect_delay = 7
 bitlbee.nicks = "${NICKS}"
-bitlbee.username = "${USERNAME}"
+bitlbee.username = "\${sec.data.bitlbee_username}"
 bitlbee.realname = "${REALNAME}"
 bitlbee.local_hostname
 bitlbee.command
@@ -250,7 +250,7 @@ bitlbee.autorejoin_delay
 bitlbee.connection_timeout
 bitlbee.anti_flood_prio_high
 bitlbee.anti_flood_prio_low
-bitlbee.away_check
+bitlbee.away_check = 5
 bitlbee.away_check_max_nicks
 bitlbee.default_msg_kick
 bitlbee.default_msg_part
