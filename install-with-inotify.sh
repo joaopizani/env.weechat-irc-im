@@ -13,7 +13,7 @@ hash -r
 # GNOME-based
 AUTOSTART_DIR="${HOME}/.config/autostart"
 mkdir -p "${AUTOSTART_DIR}"
-cp "${DIR}/inotify-daemon.desktop"  "${AUTOSTART_DIR}/inotify-daemon.desktop"
+ln -s -f -n "${DIR}/inotify-daemon.desktop" "${AUTOSTART_DIR}/inotify-daemon.desktop"
 
 start-stop-daemon --exec "${HOME}/bin/inotify-daemon" --start
 
