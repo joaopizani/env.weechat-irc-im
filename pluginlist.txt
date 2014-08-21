@@ -5,3 +5,4 @@ buffers
 iset
 buffer_autoclose
 colorize_nicks
+fileaway.py

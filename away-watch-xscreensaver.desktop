@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Exec=/home/joaopizani/bin/away-watch-xscreensaver
+Hidden=false
+NoDisplay=false
+X-GNOME-Autostart-enabled=true
+Name[en_US]=away-watch-xscreensaver
+Name=away-watch-xscreensaver
+Comment[en_US]=
+Comment=
