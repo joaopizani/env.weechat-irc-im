@@ -14,10 +14,11 @@ ln -s -f -n "${DIR}/away-watch-xscreensaver.sh"     "${BINHOME}/away-watch-xscre
 hash -r
 
 # GNOME-based
-AUTOSTART_DIR="${HOME}/.config/autostart"
-mkdir -p "${AUTOSTART_DIR}"
-ln -s -f -n "${DIR}/inotify-daemon.desktop"           "${AUTOSTART_DIR}/inotify-daemon.desktop"
-ln -s -f -n "${DIR}/away-watch-xscreensaver.desktop"  "${AUTOSTART_DIR}/away-watch-xscreensaver.desktop"
+GNOME_AUTOSTART="${HOME}/.config/autostart"
+HERE_AUTOSTART="${DIR}/autostart"
+mkdir -p "${GNOME_AUTOSTART}"
+ln -s -f -n "${HERE_AUTOSTART}/inotify-daemon.desktop"           "${GNOME_AUTOSTART}/inotify-daemon.desktop"
+ln -s -f -n "${HERE_AUTOSTART}/away-watch-xscreensaver.desktop"  "${GNOME_AUTOSTART}/away-watch-xscreensaver.desktop"
 
 start-stop-daemon --exec "${BINHOME}/inotify-daemon" --start
 "${BINHOME}/away-watch-xscreensaver" 1> /dev/null 2> /dev/null < /dev/null & disown %?'away-watch-xscreensaver'
