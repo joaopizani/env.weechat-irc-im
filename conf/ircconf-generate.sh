@@ -119,8 +119,8 @@ autoreconnect = on
 autoreconnect_delay = 10
 autorejoin = off
 autorejoin_delay = 30
-away_check = 0
-away_check_max_nicks = 25
+away_check = 5
+away_check_max_nicks = 0
 capabilities = ""
 command = ""
 command_delay = 0
@@ -179,7 +179,7 @@ freenode.connection_timeout
 freenode.anti_flood_prio_high
 freenode.anti_flood_prio_low
 freenode.away_check = 5
-freenode.away_check_max_nicks
+freenode.away_check_max_nicks = 0
 freenode.default_msg_kick
 freenode.default_msg_part
 freenode.default_msg_quit
@@ -215,7 +215,7 @@ oftc.connection_timeout
 oftc.anti_flood_prio_high
 oftc.anti_flood_prio_low
 oftc.away_check = 5
-oftc.away_check_max_nicks
+oftc.away_check_max_nicks = 0
 oftc.default_msg_kick
 oftc.default_msg_part
 oftc.default_msg_quit
@@ -251,7 +251,7 @@ bitlbee.connection_timeout
 bitlbee.anti_flood_prio_high
 bitlbee.anti_flood_prio_low
 bitlbee.away_check = 5
-bitlbee.away_check_max_nicks
+bitlbee.away_check_max_nicks = 0
 bitlbee.default_msg_kick
 bitlbee.default_msg_part
 bitlbee.default_msg_quit
