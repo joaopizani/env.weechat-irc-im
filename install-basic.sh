@@ -14,6 +14,7 @@ CONFFILES=('alias' 'aspell' 'buffers' 'irc' 'logger' 'plugins' 'weechat')
 sudo apt-get install weechat bitlbee{,-plugin-skype}
 
 "${DIR}/conf/ircconf-generate.sh"
+"${DIR}/conf/loggerconf-generate.sh"
 
 mkdir -p "${WEECHAT_HOME}"
 for f in "${CONFFILES[@]}"; do ln -s -f -n "${CONFDIR}/${f}.conf" "${WEECHAT_HOME}/${f}.conf"; done
