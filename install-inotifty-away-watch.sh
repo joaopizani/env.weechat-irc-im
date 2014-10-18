@@ -22,3 +22,4 @@ ln -s -f -n "${HERE_AUTOSTART}/away-watch-xscreensaver.desktop"  "${GNOME_AUTOST
 
 start-stop-daemon --exec "${BINHOME}/inotify-daemon" --start
 start-stop-daemon --exec "${BINHOME}/away-watch-xscreensaver" --start
+
