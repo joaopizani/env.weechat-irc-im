@@ -13,11 +13,18 @@ BITLBEE_SRC_URL="${BITLBEE_SRC_SITE}/${BITLBEE_SRC_FILENAME}"
 BITLBEE_PREFIX_DEFAULT="${HOME}/build/bitlbee"
 BITLBEE_PREFIX="$(readlink -m "${2:-"${BITLBEE_PREFIX_DEFAULT}"}" )"
 mkdir -p "${BITLBEE_PREFIX}"
+BITLBEE_ETCDIR="${BITLBEE_PREFIX}/etc/bitlbee"
 
 BUILDDIR_ROOT_DEFAULT="/tmp"
 BUILDDIR_ROOT="$(readlink -m "${3:-"${BUILDDIR_ROOT_DEFAULT}"}" )"
 BUILDDIR="${BUILDDIR_ROOT}/bitlbee-build"
 mkdir -p "${BUILDDIR}"
+
+BINDIR="${HOME}/bin"
+mkdir -p "${BINDIR}"
+
+sudo apt-get install libotr5-dev libgnutls-dev
+sudo easy_install Skype4Py
 
 wget "${BITLBEE_SRC_URL}" -O "${BUILDDIR}/${BITLBEE_SRC_FILENAME}"
 mkdir -p "${BUILDDIR}/src"
@@ -29,6 +36,12 @@ make -j
 make install
 make install-etc
 popd
+
+LNCMD="ln -s -f -n ${DIR}/bitlbee.conf ${BITLBEE_ETCDIR}/bitlbee.conf"
+${LNCMD} || sudo ${LNCMD}
+
+ln -s -f -n "${BITLBEE_PREFIX}/sbin/bitlbee" "${BINDIR}/bitlbee"
+
 
 rm -rf "${BUILDDIR}"
 
