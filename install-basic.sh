@@ -5,7 +5,6 @@ DIR="$(cd -P "$(dirname "$(readlink -f "${BASH_SOURCE[0]}")" )" && pwd)"
 BITLBEE_PREFIX_DEFAULT="${HOME}/build/bitlbee"
 BITLBEE_PREFIX="$(readlink -m "${1:-"${BITLBEE_PREFIX_DEFAULT}"}" )"
 
-BITLBEE_SRC_SITE="http://get.bitlbee.org/src"
 BITLBEE_SRC_VER_DEFAULT="3.2.2"
 BITLBEE_SRC_VER="${2:-"${BITLBEE_SRC_VER_DEFAULT}"}"
 
