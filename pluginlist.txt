@@ -1,8 +1,8 @@
-bitlbee_typing_notice
-inotify
-go
-buffers
-iset
-buffer_autoclose
-colorize_nicks
+bitlbee_typing_notice.py
+inotify.py
+go.py
+buffers.pl
+iset.pl
+buffer_autoclose.py
+colorize_nicks.py
 fileaway.py
