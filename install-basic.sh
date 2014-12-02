@@ -5,13 +5,20 @@ DIR="$(cd -P "$(dirname "$(readlink -f "${BASH_SOURCE[0]}")" )" && pwd)"
 
 WEECHAT_HOME="${HOME}/.weechat"
 CONFDIR="${DIR}/conf"
-CONFFILES=('alias' 'aspell' 'buffers' 'irc' 'logger' 'plugins' 'weechat')
+CONF_BEFORE_PLUGINS=('alias' 'aspell' 'buffers' 'irc' 'logger')
+CONF_AFTER_PLUGINS=('plugins' 'weechat')
 
 "${DIR}/conf/ircconf-generate.sh"
 "${DIR}/conf/loggerconf-generate.sh"
 
 mkdir -p "${WEECHAT_HOME}"
-for f in "${CONFFILES[@]}"; do ln -s -f -n "${CONFDIR}/${f}.conf" "${WEECHAT_HOME}/${f}.conf"; done
+for f in "${CONF_BEFORE_PLUGINS[@]}"; do ln -s -f -n "${CONFDIR}/${f}.conf" "${WEECHAT_HOME}/${f}.conf"; done
+
+SCRIPT_COMMANDS="/help; "
+while read PLUG; do SCRIPT_COMMANDS+="/script install ${PLUG}; "; done < "${DIR}/pluginlist.txt"
+weechat -a -s -r "${SCRIPT_COMMANDS}/quit"
+
+for f in "${CONF_AFTER_PLUGINS[@]}"; do ln -s -f -n "${CONFDIR}/${f}.conf" "${WEECHAT_HOME}/${f}.conf"; done
 
 
 BITLBEE_PREFIX_DEFAULT="${HOME}/build/bitlbee"
