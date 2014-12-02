@@ -4,6 +4,9 @@ DIR="$(cd -P "$(dirname "$(readlink -f "${BASH_SOURCE[0]}")" )" && pwd)"
 
 "${DIR}/install-basic.sh"
 
+# Needed dependency for away-watch-xscreensaver
+sudo apt-get install xscreensaver
+
 git submodule update --init --recursive --remote
 git submodule foreach -q --recursive 'branch="$(git config -f $toplevel/.gitmodules submodule.$name.branch)"; git checkout $branch'
 
