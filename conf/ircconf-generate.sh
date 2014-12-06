@@ -172,7 +172,7 @@ freenode.realname = "${REALNAME}"
 freenode.local_hostname
 freenode.command
 freenode.command_delay
-freenode.autojoin = "#haskell,#agda,#bitcoin"
+freenode.autojoin = "#haskell,#agda"
 freenode.autorejoin
 freenode.autorejoin_delay
 freenode.connection_timeout
