@@ -2,7 +2,7 @@
 
 DIR="$(cd -P "$(dirname "$(readlink -f "${BASH_SOURCE[0]}")" )" && pwd)"
 
-BITLBEE_SRC_VER_DEFAULT="3.2.2"
+BITLBEE_SRC_VER_DEFAULT="3.4.1"
 BITLBEE_SRC_VER="${1:-"${BITLBEE_SRC_VER_DEFAULT}"}"
 
 BITLBEE_SRC_SITE="http://get.bitlbee.org/src"
@@ -23,7 +23,7 @@ mkdir -p "${BUILDDIR}"
 BINDIR="${HOME}/bin"
 mkdir -p "${BINDIR}"
 
-sudo apt-get install libotr5-dev libgnutls-dev
+sudo apt-get install libglib2.0-dev libotr5-dev libgnutls-dev
 sudo easy_install Skype4Py
 
 wget "${BITLBEE_SRC_URL}" -O "${BUILDDIR}/${BITLBEE_SRC_FILENAME}"
@@ -31,7 +31,7 @@ mkdir -p "${BUILDDIR}/src"
 tar -xf "${BUILDDIR}/${BITLBEE_SRC_FILENAME}" -C "${BUILDDIR}/src" --strip-components=1
 
 pushd "${BUILDDIR}/src"
-./configure --prefix="${BITLBEE_PREFIX}" --otr=1 --skype=1 --ssl=gnutls
+./configure --prefix="${BITLBEE_PREFIX}" --otr=1 --skype=1 --ssl=gnutls --strip=0
 make -j
 make install
 make install-etc
