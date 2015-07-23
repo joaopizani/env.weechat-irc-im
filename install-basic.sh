@@ -3,6 +3,8 @@
 DIR="$(cd -P "$(dirname "$(readlink -f "${BASH_SOURCE[0]}")" )" && pwd)"
 
 
+sudo apt-get install weechat{,-{core,curses,dbg,dev,doc,plugins}}
+
 WEECHAT_HOME="${HOME}/.weechat"
 CONFDIR="${DIR}/conf"
 CONF_BEFORE_PLUGINS=('alias' 'aspell' 'buffers' 'irc' 'logger')
