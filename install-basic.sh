@@ -15,7 +15,7 @@ mkdir -p "${WEECHAT_HOME}"
 for f in "${CONF_BEFORE_PLUGINS[@]}"; do ln -s -f -n "${CONFDIR}/${f}.conf" "${WEECHAT_HOME}/${f}.conf"; done
 
 SCRIPT_COMMANDS="/help; "
-while read PLUG; do SCRIPT_COMMANDS+="/script install ${PLUG}; "; done < "${DIR}/pluginlist.txt"
+while read -u9 PLUG; do SCRIPT_COMMANDS+="/script install ${PLUG}; "; done 9< "${DIR}/pluginlist.txt"
 weechat -a -s -r "${SCRIPT_COMMANDS}/quit"
 
 for f in "${CONF_AFTER_PLUGINS[@]}"; do ln -s -f -n "${CONFDIR}/${f}.conf" "${WEECHAT_HOME}/${f}.conf"; done
