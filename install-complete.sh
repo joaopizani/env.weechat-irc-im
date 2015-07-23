@@ -10,3 +10,10 @@ git submodule foreach -q --recursive 'branch="$(git config -f $toplevel/.gitmodu
 "${DIR}/inotify-msgs/install.sh"
 "${DIR}/away-xscreensaver/install.sh"
 
+
+BITLBEE_SRC_VER="3.4.1"
+BITLBEE_PREFIX="${HOME}/build/bitlbee"
+BITLBEE_BUILDDIR_ROOT="/tmp"
+
+"${DIR}/bitlbee/install.sh" "${BITLBEE_SRC_VER}" "${BITLBEE_PREFIX}" "${BITLBEE_BUILDDIR_ROOT}"
+
