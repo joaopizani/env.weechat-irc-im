@@ -2,10 +2,23 @@
 
 DIR="$(cd -P "$(dirname "$(readlink -f "${BASH_SOURCE[0]}")" )" && pwd)"
 
-read -e -p "Which username you want to use > " USERNAME
-read -e -p "Which real name you want to use > " REALNAME
-read -e -p "Which nicks you want to use (comma-separated, no spaces) > " NICKS
+USERNAME_DEFAULT="$(whoami)"
+read -e -p "Which username you want to use (default = ${USERNAME_DEFAULT}) > " USERNAME_READ
+USERNAME="${USERNAME_READ:-"${USERNAME_DEFAULT}"}"
+
+REALNAME_DEFAULT="$(getent passwd "$(whoami)" | cut -d ':' -f 5 | cut -d ',' -f 1)"
+read -e -p "Which real name you want to use (default = ) > " REALNAME_READ
+REALNAME="${REALNAME_READ:-"${REALNAME_DEFAULT}"}"
+
+NICKS_DEFAULT="${USERNAME},${USERNAME}1"
+read -e -p "Which nicks you want to use (comma-separated, no spaces) > " NICKS_READ
+NICKS="${NICKS_READ:-"${NICKS_DEFAULT}"}"
+
 read -e -p "Client SSL cert (empty if not using) > " CLIENTCERT
+
+read -e -p "Channels to autojoin on Freenode (comma-separated, no spaces) >" AUTOJOIN_FREENODE
+
+read -e -p "Channels to autojoin on OFTC (comma-separated, no spaces) >" AUTOJOIN_OFTC
 
 
 cat <<EOF > "${DIR}/irc.conf"

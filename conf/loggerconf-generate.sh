@@ -3,7 +3,6 @@
 DIR="$(cd -P "$(dirname "$(readlink -f "${BASH_SOURCE[0]}")" )" && pwd)"
 
 LOGDIR_DEFAULT_="${HOME}/comm/irclogs/weechat"
-
 read -e -p "Which logging directory to use (default = ${LOGDIR_DEFAULT_}) > " LOGDIR_READ_
 LOGDIR_="${LOGDIR_READ_:-${LOGDIR_DEFAULT_}}"
 LOGDIR="$(readlink -m "${LOGDIR_}")"
