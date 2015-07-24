@@ -35,6 +35,7 @@ pushd "${BUILDDIR}/src"
 make -j
 make install
 make install-etc
+make install-dev
 popd
 
 LNCMD="ln -s -f -n ${DIR}/bitlbee.conf ${BITLBEE_ETCDIR}/bitlbee.conf"
