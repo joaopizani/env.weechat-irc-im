@@ -185,7 +185,7 @@ freenode.realname = "${REALNAME}"
 freenode.local_hostname
 freenode.command
 freenode.command_delay
-freenode.autojoin = "#haskell,#agda"
+freenode.autojoin = "${AUTOJOIN_FREENODE}"
 freenode.autorejoin
 freenode.autorejoin_delay
 freenode.connection_timeout
@@ -221,7 +221,7 @@ oftc.realname = "${REALNAME}"
 oftc.local_hostname
 oftc.command
 oftc.command_delay
-oftc.autojoin = "#privacycafe"
+oftc.autojoin = "${AUTOJOIN_OFTC}"
 oftc.autorejoin
 oftc.autorejoin_delay
 oftc.connection_timeout
