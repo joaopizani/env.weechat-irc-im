@@ -2,3 +2,7 @@
 	path = inotify-msgs/inotify-daemon
     url = git@github.com:m4v/inotify-daemon.git
     branch = master
+[submodule "bitlbee-facebook"]
+	path = bitlbee/bitlbee-fb/bitlbee-facebook
+	url = git@github.com:joaopizani/bitlbee-facebook.git
+	branch = master

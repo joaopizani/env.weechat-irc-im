@@ -43,6 +43,8 @@ ${LNCMD} || sudo ${LNCMD}
 
 ln -s -f -n "${BITLBEE_PREFIX}/sbin/bitlbee" "${BINDIR}/bitlbee"
 
-
 rm -rf "${BUILDDIR}"
+
+
+"${DIR}/bitlbee-fb/install.sh"
 
