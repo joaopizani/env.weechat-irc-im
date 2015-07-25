@@ -16,6 +16,5 @@ pushd "${SUBMODULE}"
 PKG_CONFIG_PATH="${BITLBEE_PKGCFG}" ./autogen.sh --prefix="${BITLBEE_PREFIX}"
 make
 make install
-make distclean
 popd
 
