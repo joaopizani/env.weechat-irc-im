@@ -4,5 +4,5 @@
     branch = master
 [submodule "bitlbee-facebook"]
 	path = bitlbee/bitlbee-fb/bitlbee-facebook
-	url = git@github.com:joaopizani/bitlbee-facebook.git
+	url = git@github.com:jgeboski/bitlbee-facebook.git
 	branch = master
